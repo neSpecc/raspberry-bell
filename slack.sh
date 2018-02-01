@@ -2,11 +2,14 @@
 # -*- coding: utf-8 -*-
 import os, slackclient, time
 import random
-import config
+import yaml
+
+with open("config.yml", 'r') as ymlfile:
+	config = yaml.load(ymlfile)
 
 SOCKET_DELAY = 1
 
-valet_slack_client = slackclient.SlackClient(VALET_SLACK_TOKEN)
+valet_slack_client = slackclient.SlackClient(config['token'])
 
 
 # TODO SLACK Specific
@@ -25,7 +28,7 @@ def post_message(message, channel):
 def get_mention(user):
     return '<@{user}>'.format(user=user)
 
-valet_slack_mention = get_mention(VALET_SLACK_ID)
+valet_slack_mention = get_mention(config['id'])
 
 
 # TODO Language Specific
@@ -33,12 +36,13 @@ def is_for_me(event):
     """Know if the message is dedicated to me"""
     # check if not my own event
     type = event.get('type')
-    if type and type == 'message' and not(event.get('user')==VALET_SLACK_ID):
+    if type and type == 'message' and not(event.get('user')==config['id']):
         if is_private(event):
             return True
         text = event.get('text')
         channel = event.get('channel')
         if valet_slack_mention in text.strip().split():
+
             return True
 
 
