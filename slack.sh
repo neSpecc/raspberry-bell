@@ -4,6 +4,9 @@ import os, slackclient, time
 import random
 import yaml
 
+# Add GPIO
+import RPi.GPIO as GPIO
+
 with open("config.yml", 'r') as ymlfile:
 	config = yaml.load(ymlfile)
 
@@ -51,6 +54,13 @@ def say_hi(user_mention):
     response_template = random.choice(['Ding!',
                                        '🛎'])
     return response_template.format(mention=user_mention)
+		
+		GPIO.setmode(GPIO.BCM)
+		GPIO.setwarnings(False)
+		GPIO.setup(18,GPIO.OUT)
+		GPIO.output(18,GPIO.HIGH)
+		time.sleep(1)
+		GPIO.output(18,GPIO.LOW)
 
 
 def say_bye(user_mention):
