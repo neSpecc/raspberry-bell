@@ -24,6 +24,13 @@ def post_message(message, channel):
                           text=message, as_user=True)
 
 
+# how the bot is mentioned on slack
+def get_mention(user):
+    return '<@{user}>'.format(user=user)
+
+valet_slack_mention = get_mention(config['id'])
+
+
 # TODO Language Specific
 def is_for_me(event):
     """Know if the message is dedicated to me"""
@@ -46,9 +53,26 @@ def say_hi(user_mention):
     return response_template.format(mention=user_mention)
 
 
+def say_bye(user_mention):
+    """Say Goodbye to a user"""
+    response_template = random.choice(['I am here',
+                                       'Yes, sir'])
+    return response_template.format(mention=user_mention)
+
+
 def is_hi(message):
+    # tokens = [word.encode('UTF-8').lower() for word in message.strip().split()]
+    # return any(g in tokens
+    #            for g in ['Оплачена вакансия'])
     print (message.encode('UTF-8').lower().find('оплачена вакансия #'))
     return (message.encode('UTF-8').lower().find('Оплачена вакансия #') > -1)
+
+
+def is_bye(message):
+    tokens = [word.lower() for word in message.strip().split()]
+    return any(g in tokens
+               for g in ['Test', 'Are you here?', 'raspberry-bell'])
+
 
 def handle_message(message, user, channel):
     if is_hi(message):
@@ -63,7 +87,7 @@ def handle_message(message, user, channel):
 # Bot Specific
 def run():
     if valet_slack_client.rtm_connect():
-        print('[.] Valet de Machin is ON...')
+        print('👌 Slack bot is ON...')
         while True:
             event_list = valet_slack_client.rtm_read()
             if len(event_list) > 0:
@@ -74,7 +98,7 @@ def run():
                         handle_message(message=event.get('text'), user=event.get('user'), channel=event.get('channel'))
             time.sleep(SOCKET_DELAY)
     else:
-        print('[!] Connection to Slack failed! (Have you sourced the environment variables?)')
+        print('❌ Connection to Slack failed! (Have you sourced the environment variables?)')
 
 if __name__=='__main__':
     run()
