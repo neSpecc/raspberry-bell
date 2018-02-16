@@ -24,13 +24,6 @@ def post_message(message, channel):
                           text=message, as_user=True)
 
 
-# how the bot is mentioned on slack
-def get_mention(user):
-    return '<@{user}>'.format(user=user)
-
-valet_slack_mention = get_mention(config['id'])
-
-
 # TODO Language Specific
 def is_for_me(event):
     """Know if the message is dedicated to me"""
@@ -48,35 +41,14 @@ def is_for_me(event):
 
 def say_hi(user_mention):
     """Say Hi to a user by formatting their mention"""
-    response_template = random.choice(['Sup, {mention}...',
-                                       'Yo!',
-                                       'Hola {mention}',
-                                       'Bonjour!'])
-    return response_template.format(mention=user_mention)
-
-
-def say_bye(user_mention):
-    """Say Goodbye to a user"""
-    response_template = random.choice(['see you later, alligator...',
-                                       'adios amigo',
-                                       'Bye {mention}!',
-                                       'Au revoir!'])
+    response_template = random.choice(['Ding!',
+                                       '🛎'])
     return response_template.format(mention=user_mention)
 
 
 def is_hi(message):
-    # tokens = [word.encode('UTF-8').lower() for word in message.strip().split()]
-    # return any(g in tokens
-    #            for g in ['Оплачена вакансия'])
     print (message.encode('UTF-8').lower().find('оплачена вакансия #'))
     return (message.encode('UTF-8').lower().find('Оплачена вакансия #') > -1)
-
-
-def is_bye(message):
-    tokens = [word.lower() for word in message.strip().split()]
-    return any(g in tokens
-               for g in ['bye', 'goodbye', 'revoir', 'adios', 'later', 'cya'])
-
 
 def handle_message(message, user, channel):
     if is_hi(message):
