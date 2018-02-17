@@ -1,10 +1,10 @@
 import RPi.GPIO as GPIO
 import time
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.setup(7,GPIO.OUT)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(7, GPIO.OUT)
 print "LED on"
-GPIO.output(7,GPIO.HIGH)
-time.sleep(1)
+GPIO.output(7, 1)
+time.sleep(2)
 print "LED off"
-GPIO.output(7,GPIO.LOW)
+GPIO.output(7,0)
+GPIO.cleanup()
