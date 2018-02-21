@@ -48,8 +48,8 @@ def say_hi():
 
 
 def is_hi(message):
-    print (message.encode('UTF-8').lower().find('оплачена вакансия #'))
-    return (message.encode('UTF-8').lower().find('оплачена вакансия #') > -1)
+    print (message.encode('UTF-8').lower().find(':moneybag: *Оплачена*'))
+    return (message.encode('UTF-8').lower().find(':moneybag: *Оплачена*') > -1)
 
 def handle_message(message, user, channel):
     if is_hi(message):
