@@ -49,17 +49,13 @@ def say_hi(user_mention):
 
 def is_hi(message):
     print (message.encode('UTF-8').lower().find('оплачена вакансия #'))
-    return (message.encode('UTF-8').lower().find('Оплачена вакансия #') > -1)
+    return (message.encode('UTF-8').lower().find('оплачена вакансия #') > -1)
 
 def handle_message(message, user, channel):
     if is_hi(message):
         user_mention = get_mention(user)
         # os.system('servo.py')
         post_message(message=say_hi(user_mention), channel=channel)
-    elif is_bye(message):
-        user_mention = get_mention(user)
-        post_message(message=say_bye(user_mention), channel=channel)
-
 
 # Bot Specific
 def run():
