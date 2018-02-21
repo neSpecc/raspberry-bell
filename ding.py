@@ -2,13 +2,14 @@ import RPi.GPIO as GPIO
 import time
 
 def bing():
-    GPIO.setmode(GPIO.BCM)
+    GPIO.setmode(GPIO.BOARD)
     GPIO.setwarnings(False)
-    GPIO.setup(18,GPIO.OUT)
+    GPIO.setup(7,GPIO.OUT)
     print "Servo ON"
-    GPIO.output(18,GPIO.HIGH)
-    time.sleep(1)
+    GPIO.output(7,1)
+    time.sleep(3)
     print "Servo OFF"
-    GPIO.output(18,GPIO.LOW)
+    GPIO.output(7,0)
+    GPIO.cleanup()
 if name == 'main':
     bing()

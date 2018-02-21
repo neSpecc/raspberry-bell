@@ -44,7 +44,7 @@ def say_hi(user_mention):
     """Say Hi to a user by formatting their mention"""
     response_template = random.choice(['Ding!',
                                        '🛎'])
-		ding.bing();
+		ding.bing()
     return response_template.format(mention=user_mention)
 
 
