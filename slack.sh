@@ -40,7 +40,7 @@ def is_for_me(event):
             return True
 
 
-def say_hi(user_mention):
+def say_hi():
     """Say Hi to a user by formatting their mention"""
     response_template = random.choice(['Ding!', '🛎'])
     ding.bing()
@@ -53,9 +53,10 @@ def is_hi(message):
 
 def handle_message(message, user, channel):
     if is_hi(message):
-        user_mention = get_mention(user)
+        # user_mention = get_mention(user)
         # os.system('servo.py')
-        post_message(message=say_hi(user_mention), channel=channel)
+        # post_message(message=say_hi(), channel=channel)
+				ding.bing()
 
 # Bot Specific
 def run():
