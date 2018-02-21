@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import ding.py
+import ding
 import os, slackclient, time
 import random
 import yaml
