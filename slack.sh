@@ -15,7 +15,7 @@ valet_slack_client = slackclient.SlackClient(config['token'])
 
 # TODO SLACK Specific
 def is_private(event):
-    """Checks if on a private slack channel"""
+    """Checks if on a private Slack channel"""
     channel = event.get('channel')
     return channel.startswith('D')
 
