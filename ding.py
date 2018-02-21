@@ -2,14 +2,14 @@ import RPi.GPIO as GPIO
 import time
 
 def bing():
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setwarnings(False)
-    GPIO.setup(7,GPIO.OUT)
-    print "Servo ON"
-    GPIO.output(7,1)
-    time.sleep(3)
-    print "Servo OFF"
-    GPIO.output(7,0)
-    GPIO.cleanup()
-if name == 'main':
+  GPIO.setmode(GPIO.BCM)
+  GPIO.setwarnings(False)
+  GPIO.setup(7,GPIO.OUT)
+  print "LED on"
+  GPIO.output(7,GPIO.HIGH)
+  time.sleep(1)
+  print "LED off"
+  GPIO.output(7,GPIO.LOW)
+
+if __name__ == '__main__':
     bing()
