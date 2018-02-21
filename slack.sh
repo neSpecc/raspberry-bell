@@ -56,7 +56,7 @@ def handle_message(message, user, channel):
         # user_mention = get_mention(user)
         # os.system('servo.py')
         # post_message(message=say_hi(), channel=channel)
-				ding.bing()
+        ding.bing()
 
 # Bot Specific
 def run():
