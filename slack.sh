@@ -36,7 +36,6 @@ def is_for_me(event):
         text = event.get('text')
         channel = event.get('channel')
         if valet_slack_mention in text.strip().split():
-
             return True
 
 
@@ -61,7 +60,7 @@ def handle_message(message, user, channel):
 # Bot Specific
 def run():
     if valet_slack_client.rtm_connect():
-        print('[.] Valet de Machin is ON...')
+        print('Slack Bot is ON')
         while True:
             event_list = valet_slack_client.rtm_read()
             if len(event_list) > 0:
@@ -72,7 +71,7 @@ def run():
                         handle_message(message=event.get('text'), user=event.get('user'), channel=event.get('channel'))
             time.sleep(SOCKET_DELAY)
     else:
-        print('[!] Connection to Slack failed! (Have you sourced the environment variables?)')
+        print('Connection to Slack failed')
 
 if __name__=='__main__':
     run()
