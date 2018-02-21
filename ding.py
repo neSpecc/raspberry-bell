@@ -10,6 +10,6 @@ def bing():
   time.sleep(1)
   print "LED off"
   GPIO.output(7,0)
-
+  GPIO.cleanup()
 if __name__ == '__main__':
     bing()
