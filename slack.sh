@@ -44,7 +44,17 @@ def say_hi(user_mention):
     """Say Hi to a user by formatting their mention"""
     response_template = random.choice(['Ding!',
                                        '🛎'])
+<<<<<<< HEAD
 		ding.doSomething();
+=======
+    return response_template.format(mention=user_mention)
+		execfile("led.py")
+
+def say_bye(user_mention):
+    """Say Goodbye to a user"""
+    response_template = random.choice(['I am here',
+                                       'Yes, sir'])
+>>>>>>> 04bf8c478308b3233cc3995143b76e10b6537286
     return response_template.format(mention=user_mention)
 
 
@@ -52,6 +62,16 @@ def is_hi(message):
     print (message.encode('UTF-8').lower().find('оплачена вакансия #'))
     return (message.encode('UTF-8').lower().find('Оплачена вакансия #') > -1)
 
+<<<<<<< HEAD
+=======
+
+def is_bye(message):
+    tokens = [word.lower() for word in message.strip().split()]
+    return any(g in tokens
+               for g in ['Test', 'Are you here?', 'raspberry-bell'])
+
+
+>>>>>>> 04bf8c478308b3233cc3995143b76e10b6537286
 def handle_message(message, user, channel):
     if is_hi(message):
         user_mention = get_mention(user)
@@ -65,7 +85,7 @@ def handle_message(message, user, channel):
 # Bot Specific
 def run():
     if valet_slack_client.rtm_connect():
-        print('[.] Valet de Machin is ON...')
+        print('👌 Slack bot is ON...')
         while True:
             event_list = valet_slack_client.rtm_read()
             if len(event_list) > 0:
@@ -76,7 +96,7 @@ def run():
                         handle_message(message=event.get('text'), user=event.get('user'), channel=event.get('channel'))
             time.sleep(SOCKET_DELAY)
     else:
-        print('[!] Connection to Slack failed! (Have you sourced the environment variables?)')
+        print('❌ Connection to Slack failed! (Have you sourced the environment variables?)')
 
 if __name__=='__main__':
     run()
