@@ -7,7 +7,7 @@ def bing():
   GPIO.setup(7,GPIO.OUT)
   print "Solenoid on"
   GPIO.output(7,1)
-  time.sleep(1)
+  time.sleep(3)
   print "Solenoid off"
   GPIO.output(7,0)
   GPIO.cleanup()
