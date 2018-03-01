@@ -49,6 +49,7 @@ def run():
                 for event in event_list:
                     print(event)
                     # print (event)
+                        handle_message(message=event.get('text'), user=event.get('user'), channel=event.get('channel'))
             time.sleep(SOCKET_DELAY)
     else:
         print('Connection to Slack failed')
