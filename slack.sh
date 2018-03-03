@@ -58,7 +58,7 @@ def run():
             if len(event_list) > 0:
                 for event in event_list:
                     print(event)
-					text = event.get('text')
+                    text = event.get('text')
                     type = event.get('type')
                     if type and type == 'message' and text:
                         handle_message(message=event.get('text'), user=event.get('user'), channel=event.get('channel'))
