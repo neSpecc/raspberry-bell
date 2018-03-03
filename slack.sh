@@ -17,8 +17,6 @@ def post_message(message, channel):
 
 def is_for_me(event):
     """Know if the message is dedicated to me"""
-    type = event.get('type')
-        channel = event.get('channel')
         if valet_slack_mention in text.strip().split():
             return True
 
