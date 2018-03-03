@@ -11,7 +11,6 @@ with open("config.yml", 'r') as ymlfile:
 SOCKET_DELAY = 1
 
 valet_slack_client = slackclient.SlackClient(config['token'])
-text = event.get('text')
 
 # TODO SLACK Specific
 
@@ -59,6 +58,7 @@ def run():
             if len(event_list) > 0:
                 for event in event_list:
                     print(event)
+					text = event.get('text')
                     type = event.get('type')
                     if type and type == 'message' and text:
                         handle_message(message=event.get('text'), user=event.get('user'), channel=event.get('channel'))
