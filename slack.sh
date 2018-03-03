@@ -6,7 +6,7 @@ import random
 import yaml
 
 with open("config.yml", 'r') as ymlfile:
-	config = yaml.load(ymlfile)
+    config = yaml.load(ymlfile)
 
 SOCKET_DELAY = 1
 
@@ -61,9 +61,9 @@ def run():
             if len(event_list) > 0:
                 for event in event_list:
                     print(event)
-					type = event.get('type')
-					if type and type == 'message':
-						handle_message(message=event.get('text'), user=event.get('user'), channel=event.get('channel'))
+                    type = event.get('type')
+                    if type and type == 'message':
+                        handle_message(message=event.get('text'), user=event.get('user'), channel=event.get('channel'))
             time.sleep(SOCKET_DELAY)
     else:
         print('Connection to Slack failed')
