@@ -61,7 +61,7 @@ def run():
                     text = event.get('text')
                     type = event.get('type')
                     if type and type == 'message' and text:
-                        handle_message(message=event.get('text'), user=event.get('user'), channel=event.get('channel'))
+                        handle_message(message=text, user=event.get('user'), channel=event.get('channel'))
             time.sleep(SOCKET_DELAY)
     else:
         print('Connection to Slack failed')
