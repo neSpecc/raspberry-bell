@@ -28,7 +28,6 @@ def is_hi(message):
 def handle_message(message, user, channel):
     if is_hi(message):
         ding.bing()
-				post_message(message=say_hi(), channel=channel)
 
 # Bot Specific
 def run():
