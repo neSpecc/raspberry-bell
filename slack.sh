@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import ding
-import os, slackclient, time
-import random
+import slackclient, time
 import yaml
 
 with open("config.yml", 'r') as ymlfile:
