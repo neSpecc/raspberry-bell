@@ -15,11 +15,6 @@ valet_slack_client = slackclient.SlackClient(config['token'])
 def post_message(message, channel):
     valet_slack_client.api_call('chat.postMessage', channel=channel, text=message, as_user=True)
 
-def is_for_me(event):
-    """Know if the message is dedicated to me"""
-        if valet_slack_mention in text.strip().split():
-            return True
-
 def say_hi():
     """Say Hi to a user by formatting their mention"""
     response_template = random.choice(['Ding!', '🛎'])
