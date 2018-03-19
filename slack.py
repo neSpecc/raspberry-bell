@@ -12,7 +12,7 @@ valet_slack_client = slackclient.SlackClient(config['token'])
 
 def is_paid(message):
     paid = message.encode('UTF-8').lower().find('💰 *Оплачена') > -1
-    orderTaken = message.encode('UTF-8').lower().find('💸*Заказан счет') > -1
+    orderTaken = message.encode('UTF-8').lower().find(':money_with_wings:*Заказан счет*') > -1
     return paid or orderTaken
 
 def handle_message(message, user, channel):
