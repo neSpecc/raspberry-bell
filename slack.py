@@ -11,8 +11,8 @@ SOCKET_DELAY = 1
 valet_slack_client = slackclient.SlackClient(config['token'])
 
 def is_paid(message):
-    paid = message.encode('UTF-8').lower().find('💰 *Оплачена') > -1
-    return paid
+    print (message.encode('UTF-8').lower().find(':moneybag: *Оплачена'))
+    return (message.encode('UTF-8').lower().find(':moneybag: *Оплачена') > -1)
 
 def handle_message(message, user, channel):
     if is_paid(message):
