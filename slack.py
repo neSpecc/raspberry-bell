@@ -19,6 +19,7 @@ def is_paid(message):
     print (paid)
     print (orderTaken)
     print (orderPaid)
+    print (message)
     return paid or orderTaken or orderPaid
 
 def handle_message(message, user, channel):
