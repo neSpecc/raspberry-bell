@@ -14,13 +14,13 @@ def is_paid(message):
     # print (message.encode('UTF-8').lower().find(':moneybag: *Оплачена'))
     # return (message.encode('UTF-8').lower().find(':moneybag: *Оплачена') > -1)
     paid = message.encode('UTF-8').lower().find(':moneybag:') > -1
-    orderTaken = message.encode('UTF-8').lower().find(':money_with_wings:') > -1
-    # orderPaid = message.encode('UTF-8').lower().find(':dollar:') > -1
+    # orderTaken = message.encode('UTF-8').lower().find(':money_with_wings:') > -1
+    orderPaid = message.encode('UTF-8').lower().find(':dollar:') > -1
     print (paid)
-    print (orderTaken)
-    # print (orderPaid)
+    # print (orderTaken)
+    print (orderPaid)
     print (message)
-    return paid or orderTaken
+    return paid or orderPaid
 
 def handle_message(message, user, channel):
     if is_paid(message):
