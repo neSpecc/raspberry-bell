@@ -19,7 +19,6 @@ def is_paid(message):
     print (paid)
     # print (orderTaken)
     print (orderPaid)
-    print (message)
     print (message.encode('UTF-8'))
     return paid or orderPaid
 
