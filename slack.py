@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import ding
-import slackclient, time
+import .slackclient, time
 import yaml
 
 with open("/home/pi/raspberry-bell/config.yml", 'r') as ymlfile:
