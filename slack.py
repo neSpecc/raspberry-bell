@@ -3,7 +3,7 @@ import ding
 import slackclient, time
 import yaml
 
-with open("/home/pi/raspberry-bell/config.yml", 'r') as ymlfile:
+with open("/home/pi/bell/raspberry-bell/config.yml", 'r') as ymlfile:
     config = yaml.load(ymlfile)
 
 SOCKET_DELAY = 1
