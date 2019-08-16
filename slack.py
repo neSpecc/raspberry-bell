@@ -16,7 +16,7 @@ def is_paid(message):
     paid = message.encode('UTF-8').lower().find(':moneybag:') > -1
     # orderTaken = message.encode('UTF-8').lower().find(':money_with_wings:') > -1
     orderPaid = message.encode('UTF-8').lower().find(':dollar:') > -1
-    promoPaid = message.encode('UTF-8').lower().find('оплатил промо') > -1
+    promoPaid = message.encode('UTF-8').lower().find('Получена оплата') > -1
     print (paid)
     # print (orderTaken)
     print (orderPaid)
