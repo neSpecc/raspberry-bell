@@ -13,16 +13,16 @@ valet_slack_client = slackclient.SlackClient(config['token'])
 def is_paid(message):
     # print (message.encode('UTF-8').lower().find(':moneybag: *Оплачена'))
     # return (message.encode('UTF-8').lower().find(':moneybag: *Оплачена') > -1)
-    paid = message.encode('UTF-8').lower().find(':moneybag:') > -1
-    # orderTaken = message.encode('UTF-8').lower().find(':money_with_wings:') > -1
-    orderPaid = message.encode('UTF-8').lower().find(':dollar:') > -1
-    promoPaid = message.encode('UTF-8').lower().find('Получена оплата') > -1
-    print (paid)
-    # print (orderTaken)
-    print (orderPaid)
-    print (promoPaid)
+    orderPaid1 = message.encode('UTF-8').lower().find(':moneybag:') > -1
+    orderPaid2 = message.encode('UTF-8').lower().find(':money_with_wings:') > -1
+    orderPaid3 = message.encode('UTF-8').lower().find(':dollar:') > -1
+    orderPaid4 = message.encode('UTF-8').lower().find('Получена оплата') > -1
+    print (orderPaid1)
+    print (orderPaid2)
+    print (orderPaid3)
+    print (orderPaid4)
     print (message.encode('UTF-8'))
-    return paid or orderPaid or promoPaid
+    return orderPaid1 or orderPaid2 or orderPaid3 or orderPaid4
 
 def handle_message(message, user, channel):
     if is_paid(message):
