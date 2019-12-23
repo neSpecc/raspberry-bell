@@ -17,10 +17,12 @@ def is_paid(message):
     orderPaid2 = message.encode('UTF-8').lower().find(':money_with_wings:') > -1
     orderPaid3 = message.encode('UTF-8').lower().find(':dollar:') > -1
     orderPaid4 = message.encode('UTF-8').lower().find('Получена оплата') > -1
+    orderPaid5 = message.encode('UTF-8').lower().find(':credit_card:') > -1
     print (orderPaid1)
     print (orderPaid2)
     print (orderPaid3)
     print (orderPaid4)
+    print (orderPaid5)
     print (message.encode('UTF-8'))
     return orderPaid1 or orderPaid2 or orderPaid3 or orderPaid4
 
