@@ -4,7 +4,7 @@ import slackclient, time
 import yaml
 
 with open("/home/pi/bell/raspberry-bell/config.yml", 'r') as ymlfile:
-    config = yaml.load(ymlfile)
+    config = yaml.safe_load(ymlfile)
 
 SOCKET_DELAY = 1
 
